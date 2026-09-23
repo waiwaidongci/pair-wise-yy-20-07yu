@@ -35,17 +35,25 @@
       <label>难点批注<input id="noteInput" placeholder="如：第2小节小锣晚半拍"></label>
     </section>
 
+    <p class="legend">
+      力度分层：点击已填口令上的「强 / 中 / 弱」标注，再点一次取消；未标注按中音播放。
+      声部平衡：同一小节不能全部为弱；同拍两件击乐同时标强将保留原谱并在此提示。改动力度或增删口令会使已存方案失效留档。
+    </p>
+
     <section class="stage">
       <aside class="segments">
         <h2>已存方案</h2>
         <div id="savedList"></div>
+        <p id="saveHint" class="save-hint" hidden></p>
       </aside>
       <section class="score">
         <div id="grid" class="grid"></div>
       </section>
       <aside class="notes">
-        <h2>段落结构</h2>
+        <h2>段落结构 / 力度</h2>
         <div id="structure"></div>
+        <h2>声部平衡</h2>
+        <div id="balance"></div>
         <h2>批注</h2>
         <div id="notesList"></div>
       </aside>

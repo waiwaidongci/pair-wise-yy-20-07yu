@@ -98,6 +98,17 @@ label {
   font-size: 13px;
 }
 
+.legend {
+  margin: 0 0 14px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 10px 12px;
+}
+
 input,
 select {
   width: 100%;
@@ -145,7 +156,7 @@ select {
 .cell,
 .label-cell,
 .beat-cell {
-  min-height: 48px;
+  min-height: 62px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -172,9 +183,89 @@ select {
 }
 
 .cell.filled {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 4px 2px;
   background: #fff1d1;
   color: var(--accent);
   font-weight: 900;
+}
+
+/* 力度分层底色与音色提示 */
+.cell.filled.dyn-f {
+  background: #f8d7d2;
+}
+
+.cell.filled.dyn-m {
+  background: #fbe8c4;
+}
+
+.cell.filled.dyn-p {
+  background: #e7eef7;
+  color: var(--muted);
+}
+
+.token-btn {
+  min-height: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  padding: 0 6px;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.dyn-row {
+  display: flex;
+  gap: 2px;
+}
+
+.dyn-btn {
+  min-height: 0;
+  border: 1px solid #cbb894;
+  border-radius: 4px;
+  background: rgb(255 255 255 / 70%);
+  color: var(--muted);
+  padding: 0;
+  width: 20px;
+  height: 18px;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.dyn-btn.active.f {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+.dyn-btn.active.m {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: white;
+}
+
+.dyn-btn.active.p {
+  border-color: #4a6a92;
+  background: #4a6a92;
+  color: white;
+}
+
+/* 声部平衡：全弱小节拍头警示 + 强强相撞红框（原谱保留不改） */
+.beat-cell.weak-measure {
+  background: #f3dfdf;
+  color: var(--accent);
+}
+
+.cell.clash {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
 }
 
 .cell.playing {
@@ -184,14 +275,120 @@ select {
 }
 
 .saved-item {
+  position: relative;
   width: 100%;
   min-height: auto;
   margin-bottom: 8px;
   border: 1px solid var(--line);
+  border-radius: 8px;
   background: white;
   color: var(--ink);
   text-align: left;
   padding: 10px;
+  line-height: 1.6;
+}
+
+.saved-item .time {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.saved-item.archived {
+  opacity: 0.72;
+  background: #f4efe7;
+  cursor: default;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  margin-right: 6px;
+  vertical-align: 2px;
+}
+
+.badge.ok {
+  background: #d9efea;
+  color: var(--active);
+}
+
+.badge.off {
+  background: #e4ddd2;
+  color: var(--muted);
+}
+
+.archive-title {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 14px 0 8px;
+}
+
+.save-hint {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #eef5f2;
+  color: var(--active);
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 8px 10px;
+  margin: 10px 0 0;
+}
+
+.save-hint.info {
+  background: #fbf4e3;
+  border-color: var(--gold);
+  color: #7a5a12;
+}
+
+.balance-item {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.balance-item.warn {
+  border-color: #d9b36a;
+  background: #fbf4e3;
+}
+
+.balance-item.conflict {
+  border-color: var(--accent);
+  background: #fbe9e7;
+}
+
+.balance-item strong {
+  margin-right: 6px;
+  color: var(--accent);
+}
+
+.dyn-counts {
+  display: inline-flex;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.dyn-counts .f {
+  color: var(--accent);
+}
+
+.dyn-counts .m {
+  color: var(--gold);
+}
+
+.dyn-counts .p {
+  color: #4a6a92;
+}
+
+.structure-row em {
+  font-style: normal;
+  color: var(--ink);
+  font-weight: 800;
 }
 
 .note {
