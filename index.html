@@ -20,6 +20,8 @@
       </div>
     </header>
 
+    <p id="statusMsg" class="status" role="status" aria-live="polite"></p>
+
     <section class="controls">
       <label>剧目片段<input id="pieceName" placeholder="如：出场锣鼓-慢起"></label>
       <label>速度BPM<input id="bpmInput" type="number" min="40" max="220" value="96"></label>
@@ -39,9 +41,13 @@
       <aside class="segments">
         <h2>已存方案</h2>
         <div id="savedList"></div>
+        <h2 class="archive-title">失效留档</h2>
+        <div id="archiveList"></div>
       </aside>
       <section class="score">
         <div id="grid" class="grid"></div>
+        <p class="grid-hint">点击格子增删口令；点击格内力度角标循环：未标注（按中音播放）→ 强 → 中 → 弱。</p>
+        <div id="conflictPanel" class="conflict-panel" aria-live="polite"></div>
       </section>
       <aside class="notes">
         <h2>段落结构</h2>
